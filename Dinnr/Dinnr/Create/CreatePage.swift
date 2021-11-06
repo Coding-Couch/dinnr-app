@@ -47,6 +47,10 @@ struct CreatePage: View {
         .padding()
     }
     
+    private func displaySavePrompt() {
+        
+    }
+    
     var body: some View {
         Form {
             Section(LocalizedStringKey("info")) {
@@ -60,7 +64,11 @@ struct CreatePage: View {
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
-        .navi
+        .toolbar {
+            Button(LocalizedStringKey("save")) {
+                displaySavePrompt()
+            }
+        }
     }
 }
 
