@@ -10,13 +10,14 @@ jobs:
     runs-on: macOS-11
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2.4.0
-    - name: Build and Test
-      run: | 
-        cd Dinnr; \
-        xcodebuild \
-          -project Dinnr.xcodeproj
-          -scheme Dinnr \
-          -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' \
-          -allowProvisioningUpdates
-          clean test;
+    - name: xcodebuild
+      uses: mxcl/xcodebuild@v1.9.4
+      with:
+        xcode: ^13
+        platform: iOS
+        action: test
+        code-coverage: true
+        warnings-as-errors: false
+        configuration: debug
