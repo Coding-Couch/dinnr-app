@@ -10,33 +10,43 @@ import SwiftUI
 struct IngredientView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     
-    @StateObject var ingredient: Ingredient = Ingredient()
+    @Binding var ingredient: Ingredient
+    @State var isSearching: Bool = false
     
-    var iPadView: some View {
+    private var iPadView: some View {
         HStack {
-            Image(systemName: "photo")
+            AsyncImage(url: ingredient.image)
+                .fixedSize()
             inputView
         }
     }
     
-    var iPhoneView: some View {
+    private var iPhoneView: some View {
         VStack {
-            Image(systemName: "photo")
+            AsyncImage(url: ingredient.image)
+                .fixedSize()
             inputView
         }
     }
     
-    var inputView: some View {
-        VStack {
+    private var nameInputView: some View {
+        HStack {
             TextField(
                 LocalizedStringKey("ingredient_name"),
                 text: $ingredient.name
-            )
+            ).textFieldStyle(.roundedBorder)
+            Image(systemName: "camera")
+        }
+    }
+    
+    private var inputView: some View {
+        VStack {
+            nameInputView
             AmountView(value: $ingredient.amount, unitType: $ingredient.unit)
         }
     }
     
-    var body: some View {
+    @ViewBuilder private func deviceSpecificView() -> some View {
         switch sizeClass {
         case .compact:
             iPhoneView
@@ -44,12 +54,28 @@ struct IngredientView: View {
             iPadView
         }
     }
+    
+    var body: some View {
+        deviceSpecificView()
+            .sheet(isPresented: $isSearching) {
+                
+            } content: {
+                IngredientSearchView(ingredient: $ingredient)
+            }
+
+    }
 }
 
 struct IngredientView_Previews: PreviewProvider {
+    struct TestView: View {
+        @State var ingredient: Ingredient = Ingredient()
+        
+        var body: some View {
+            IngredientView(ingredient: $ingredient)        }
+    }
+    
     static var previews: some View {
-        IngredientView()
-.previewInterfaceOrientation(.portrait)
-
+        TestView()
+            .previewInterfaceOrientation(.portrait)
     }
 }

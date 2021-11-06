@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Ingredient: ObservableObject, Identifiable {
+struct Ingredient: Identifiable, Hashable {
     init(name: String, amount: Double, unit: IngredientAmountType, image: URL? = nil) {
         self.name = name
         self.amount = amount
@@ -24,9 +24,9 @@ class Ingredient: ObservableObject, Identifiable {
     
     let id: UUID = UUID()
     var name: String
+    var image: URL?
     var amount: Double
     var unit: IngredientAmountType
-    var image: URL?
 }
 
 enum IngredientAmountType: CustomStringConvertible, Hashable, Identifiable {

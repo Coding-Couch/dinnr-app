@@ -19,6 +19,7 @@
 		9D4EC0BC2735CF7C00A050A6 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BB2735CF7C00A050A6 /* Ingredient.swift */; };
 		9D4EC0BE2735CFAC00A050A6 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BD2735CFAC00A050A6 /* Instruction.swift */; };
 		9D4EC0C02735D8EA00A050A6 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */; };
+		9D4EC0C22737118E00A050A6 /* IngredientSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C12737118E00A050A6 /* IngredientSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		9D4EC0BB2735CF7C00A050A6 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		9D4EC0BD2735CFAC00A050A6 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
+		9D4EC0C12737118E00A050A6 /* IngredientSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				9D4EC0B42735CC2000A050A6 /* CreatePage.swift */,
 				9D4EC0B62735CE7100A050A6 /* IngredientView.swift */,
 				9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */,
+				9D4EC0C12737118E00A050A6 /* IngredientSearchView.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				9D4EC0BC2735CF7C00A050A6 /* Ingredient.swift in Sources */,
 				848D95C92735C5D000126072 /* DinnrApp.swift in Sources */,
 				9D4EC0BA2735CF5D00A050A6 /* Recipe.swift in Sources */,
+				9D4EC0C22737118E00A050A6 /* IngredientSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

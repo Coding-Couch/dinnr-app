@@ -31,6 +31,7 @@ struct AmountView: View {
             Text(IngredientAmountType.count.description).tag(IngredientAmountType.count)
 
         }
+        .pickerStyle(.menu)
     }
     
     let formatter: NumberFormatter = {
