@@ -1,5 +1,5 @@
 //
-//  DeviceType.swift
+//  PreviewDevice+Device.swift
 //  Dinnr
 //
 //  Created by Brent Mifsud on 2021-11-05.
