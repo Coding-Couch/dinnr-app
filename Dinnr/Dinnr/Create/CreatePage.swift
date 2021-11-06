@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CreatePage: View {
-    @StateObject var recipe: Recipe
+    @StateObject var recipe: Recipe = Recipe()
+    
     var body: some View {
         LazyVStack {
             

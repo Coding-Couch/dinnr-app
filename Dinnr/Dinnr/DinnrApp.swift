@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct DinnrApp: App {
     var body: some Scene {
-        Spacer()
+        WindowGroup {
+            Spacer()
+        }
     }
 }

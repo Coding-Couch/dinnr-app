@@ -18,6 +18,7 @@
 		9D4EC0BA2735CF5D00A050A6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0B92735CF5D00A050A6 /* Recipe.swift */; };
 		9D4EC0BC2735CF7C00A050A6 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BB2735CF7C00A050A6 /* Ingredient.swift */; };
 		9D4EC0BE2735CFAC00A050A6 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BD2735CFAC00A050A6 /* Instruction.swift */; };
+		9D4EC0C02735D8EA00A050A6 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9D4EC0B92735CF5D00A050A6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9D4EC0BB2735CF7C00A050A6 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		9D4EC0BD2735CFAC00A050A6 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				9D4EC0B42735CC2000A050A6 /* CreatePage.swift */,
 				9D4EC0B62735CE7100A050A6 /* IngredientView.swift */,
+				9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4EC0C02735D8EA00A050A6 /* AmountView.swift in Sources */,
 				9D4EC0BE2735CFAC00A050A6 /* Instruction.swift in Sources */,
 				9D4EC0B72735CE7100A050A6 /* IngredientView.swift in Sources */,
 				9D4EC0B52735CC2000A050A6 /* CreatePage.swift in Sources */,
@@ -467,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dinnr/Preview Content\"";
-				DEVELOPMENT_TEAM = M5MTT5YDN9;
+				DEVELOPMENT_TEAM = 7QBM44JQ8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -496,7 +500,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dinnr/Preview Content\"";
-				DEVELOPMENT_TEAM = M5MTT5YDN9;
+				DEVELOPMENT_TEAM = 7QBM44JQ8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
