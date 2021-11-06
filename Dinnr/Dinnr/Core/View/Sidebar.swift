@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Sidebar: View {
-    @Binding var selectedSection: Section?
+    @Binding var selectedSection: Tab?
 
     var body: some View {
         List {
-            ForEach(Section.allCases) { section in
+            ForEach(Tab.allCases) { section in
                 NavigationLink(
                     destination: viewForSection(section: section),
                     tag: section,
@@ -27,7 +27,7 @@ struct Sidebar: View {
         .navigationBarHidden(true)
     }
 
-    @ViewBuilder func viewForSection(section: Section?) -> some View {
+    @ViewBuilder func viewForSection(section: Tab?) -> some View {
         switch section {
         case .some(let section) where section == .recipeCreation:
             #warning("TODO - Add creation page")

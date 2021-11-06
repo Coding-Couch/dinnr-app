@@ -8,6 +8,6 @@
 
 "Sidebar.Button.Back.Title" = "Sidebar";
 "Sidebar.Placeholder.Title" = "Press \"< Sidebar\" to make a selection...";
-"Section.Title.Create" = "Create";
-"Section.Title.Explore" = "Explore";
-"Section.Title.Settings" = "Settings";
+"Tab.Title.Create" = "Create";
+"Tab.Title.Explore" = "Explore";
+"Tab.Title.Settings" = "Settings";
