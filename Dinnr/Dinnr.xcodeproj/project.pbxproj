@@ -22,6 +22,7 @@
 		84FC727227363F7900618F1C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84FC727427363F7900618F1C /* Localizable.strings */; };
 		84FC72762736588900618F1C /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC72752736588900618F1C /* Sidebar.swift */; };
 		84FC7278273660FA00618F1C /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC7277273660FA00618F1C /* TabBar.swift */; };
+		848D96022736020A00126072 /* PreviewDevice+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D96012736020A00126072 /* PreviewDevice+Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		84FC727327363F7900618F1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84FC72752736588900618F1C /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		84FC7277273660FA00618F1C /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		848D96012736020A00126072 /* PreviewDevice+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewDevice+Device.swift"; sourceTree = "<group>"; };
 		9D4EC0B42735CC2000A050A6 /* CreatePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePage.swift; sourceTree = "<group>"; };
 		9D4EC0B62735CE7100A050A6 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		9D4EC0B92735CF5D00A050A6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				84FC726F27363F5500618F1C /* Resources */,
 				84FC72642736193D00618F1C /* Core */,
+				848D9600273601F000126072 /* Common */,
 				9D4EC0B82735CF3B00A050A6 /* Models */,
 				848D95F72735CD9000126072 /* Networking */,
 				848D95C82735C5D000126072 /* DinnrApp.swift */,
@@ -214,6 +217,14 @@
 				84FC727427363F7900618F1C /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		848D9600273601F000126072 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				848D96012736020A00126072 /* PreviewDevice+Device.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		9D4EC0AF2735CB4000A050A6 /* Browse */ = {
@@ -410,6 +421,7 @@
 				848D95C92735C5D000126072 /* DinnrApp.swift in Sources */,
 				84FC7269273619CC00618F1C /* RootPage.swift in Sources */,
 				848D95FB2735CE7100126072 /* NetworkRequest.swift in Sources */,
+				848D96022736020A00126072 /* PreviewDevice+Device.swift in Sources */,
 				848D95FD2735D46B00126072 /* HTTPMethod.swift in Sources */,
 				848D95F92735CDA700126072 /* NetworkClient.swift in Sources */,
 			);
