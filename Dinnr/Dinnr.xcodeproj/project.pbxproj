@@ -20,6 +20,11 @@
 		9D4EC0BE2735CFAC00A050A6 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BD2735CFAC00A050A6 /* Instruction.swift */; };
 		9D4EC0C02735D8EA00A050A6 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */; };
 		9D4EC0C22737118E00A050A6 /* IngredientSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C12737118E00A050A6 /* IngredientSearchView.swift */; };
+		848D95F92735CDA700126072 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D95F82735CDA700126072 /* NetworkClient.swift */; };
+		848D95FB2735CE7100126072 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D95FA2735CE7100126072 /* NetworkRequest.swift */; };
+		848D95FD2735D46B00126072 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D95FC2735D46B00126072 /* HTTPMethod.swift */; };
+		848D95FF2735D7E800126072 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D95FE2735D7E800126072 /* HTTPStatusCode.swift */; };
+		848D96022736020A00126072 /* PreviewDevice+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D96012736020A00126072 /* PreviewDevice+Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,7 @@
 		848D95DF2735C5D100126072 /* DinnrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DinnrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		848D95E32735C5D100126072 /* DinnrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnrUITests.swift; sourceTree = "<group>"; };
 		848D95E52735C5D100126072 /* DinnrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		848D96012736020A00126072 /* PreviewDevice+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewDevice+Device.swift"; sourceTree = "<group>"; };
 		9D4EC0B42735CC2000A050A6 /* CreatePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePage.swift; sourceTree = "<group>"; };
 		9D4EC0B62735CE7100A050A6 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		9D4EC0B92735CF5D00A050A6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -56,6 +62,10 @@
 		9D4EC0BD2735CFAC00A050A6 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 		9D4EC0C12737118E00A050A6 /* IngredientSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchView.swift; sourceTree = "<group>"; };
+		848D95F82735CDA700126072 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		848D95FA2735CE7100126072 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		848D95FC2735D46B00126072 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		848D95FE2735D7E800126072 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +116,9 @@
 		848D95C72735C5D000126072 /* Dinnr */ = {
 			isa = PBXGroup;
 			children = (
+				848D9600273601F000126072 /* Common */,
 				9D4EC0B82735CF3B00A050A6 /* Models */,
+				848D95F72735CD9000126072 /* Networking */,
 				848D95C82735C5D000126072 /* DinnrApp.swift */,
 				848D95CC2735C5D100126072 /* Assets.xcassets */,
 				9D4EC0AF2735CB4000A050A6 /* Browse */,
@@ -140,6 +152,14 @@
 				848D95E52735C5D100126072 /* DinnrUITestsLaunchTests.swift */,
 			);
 			path = DinnrUITests;
+			sourceTree = "<group>";
+		};
+		848D9600273601F000126072 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				848D96012736020A00126072 /* PreviewDevice+Device.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		9D4EC0AF2735CB4000A050A6 /* Browse */ = {
@@ -177,6 +197,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		848D95F72735CD9000126072 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				848D95F82735CDA700126072 /* NetworkClient.swift */,
+				848D95FA2735CE7100126072 /* NetworkRequest.swift */,
+				848D95FC2735D46B00126072 /* HTTPMethod.swift */,
+				848D95FE2735D7E800126072 /* HTTPStatusCode.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +218,7 @@
 				848D95C12735C5D000126072 /* Sources */,
 				848D95C22735C5D000126072 /* Frameworks */,
 				848D95C32735C5D000126072 /* Resources */,
+				848D95F62735C90500126072 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -302,6 +334,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		848D95F62735C90500126072 /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --fix\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		848D95C12735C5D000126072 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -315,6 +369,13 @@
 				848D95C92735C5D000126072 /* DinnrApp.swift in Sources */,
 				9D4EC0BA2735CF5D00A050A6 /* Recipe.swift in Sources */,
 				9D4EC0C22737118E00A050A6 /* IngredientSearchView.swift in Sources */,
+				848D95FF2735D7E800126072 /* HTTPStatusCode.swift in Sources */,
+				848D95CB2735C5D000126072 /* ContentView.swift in Sources */,
+				848D95C92735C5D000126072 /* DinnrApp.swift in Sources */,
+				848D95FB2735CE7100126072 /* NetworkRequest.swift in Sources */,
+				848D96022736020A00126072 /* PreviewDevice+Device.swift in Sources */,
+				848D95FD2735D46B00126072 /* HTTPMethod.swift in Sources */,
+				848D95F92735CDA700126072 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

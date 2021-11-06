@@ -11,7 +11,7 @@ import SwiftUI
 struct DinnrApp: App {
     var body: some Scene {
         WindowGroup {
-            Spacer()
+            Text("Hello, World!")
         }
     }
 }
