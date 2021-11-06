@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct TabBar: View {
-    @Binding var selectedSection: Section
+    @Binding var selectedSection: Tab
 
     var body: some View {
         TabView(selection: $selectedSection) {
             #warning("TODO - Add creation page")
             Text(selectedSection.localizationKey)
                 .tabItem {
-                    Label(Section.recipeCreation.localizationKey, systemImage: Section.recipeCreation.icon)
+                    Label(Tab.recipeCreation.localizationKey, systemImage: Tab.recipeCreation.icon)
                 }
-                .tag(Section.recipeCreation)
+                .tag(Tab.recipeCreation)
 
             #warning("TODO - Add search page")
             Text(selectedSection.localizationKey)
                 .tabItem {
-                    Label(Section.recipeSearch.localizationKey, systemImage: Section.recipeSearch.icon)
+                    Label(Tab.recipeSearch.localizationKey, systemImage: Tab.recipeSearch.icon)
                 }
-                .tag(Section.recipeSearch)
+                .tag(Tab.recipeSearch)
             
             #warning("TODO - Add Settings page")
             Text(selectedSection.localizationKey)
                 .tabItem {
-                    Label(Section.settings.localizationKey, systemImage: Section.settings.icon)
+                    Label(Tab.settings.localizationKey, systemImage: Tab.settings.icon)
                 }
-                .tag(Section.settings)
+                .tag(Tab.settings)
         }
         .navigationBarHidden(true)
     }

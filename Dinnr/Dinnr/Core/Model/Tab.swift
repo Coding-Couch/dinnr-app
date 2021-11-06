@@ -1,5 +1,5 @@
 //
-//  Section.swift
+//  Tab.swift
 //  Dinnr
 //
 //  Created by Brent Mifsud on 2021-11-06.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// The Various Sections in the app.
-enum Section: Int, Identifiable, Hashable, CaseIterable {
+enum Tab: Int, Identifiable, Hashable, CaseIterable {
     case recipeCreation
     case recipeSearch
     case settings
@@ -21,11 +21,11 @@ enum Section: Int, Identifiable, Hashable, CaseIterable {
     var localizationKey: LocalizedStringKey {
         switch self {
         case .recipeCreation:
-            return .init(stringLiteral: "Section.Title.Create")
+            return .init(stringLiteral: "Tab.Title.Create")
         case .recipeSearch:
-            return .init(stringLiteral: "Section.Title.Explore")
+            return .init(stringLiteral: "Tab.Title.Explore")
         case .settings:
-            return .init(stringLiteral: "Section.Title.Settings")
+            return .init(stringLiteral: "Tab.Title.Settings")
         }
     }
 

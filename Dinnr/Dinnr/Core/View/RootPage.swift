@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootPage: View {
     @Environment(\.horizontalSizeClass) var sizeClass
-    @State var selectedSection: Section = .recipeSearch
+    @State var selectedSection: Tab = .recipeSearch
 
     var body: some View {
         #warning("TODO - Handle landscape sidebar nav")
