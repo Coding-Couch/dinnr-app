@@ -11,7 +11,7 @@ struct CreatePage: View {
     @StateObject var recipe: Recipe
     var body: some View {
         LazyVStack {
-            
+
         }
     }
 }
