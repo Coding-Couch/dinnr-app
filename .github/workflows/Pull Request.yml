@@ -10,10 +10,10 @@ jobs:
     runs-on: macOS-11
 
     steps:
-    - name: Checkout
     - uses: actions/checkout@v2.4.0
-    - name: xcodebuild
-      uses: mxcl/xcodebuild@v1.9.4
+      name: Checkout
+    - uses: mxcl/xcodebuild@v1.9.4
+      name: Build and Test 
       with:
         xcode: ^13
         platform: iOS
