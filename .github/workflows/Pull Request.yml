@@ -15,7 +15,7 @@ jobs:
       run: | 
         cd Dinnr; \
         xcodebuild \
-          -project Dinnr.xcodeproject
+          -project Dinnr.xcodeproj
           -scheme Dinnr \
           -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' \
           clean test;
