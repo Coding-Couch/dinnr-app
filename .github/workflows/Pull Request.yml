@@ -12,4 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2.4.0
     - name: Build and Test
-      run: cd Dinnr; xcodebuild test -scheme Dinnr -destination='platform=iOS Simulator,OS=15.0,name=iPhone 13'
+      run: cd Dinnr; \
+        xcodebuild \
+          -project Dinnr.xcproject
+          -scheme Dinnr \
+          -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' \
+          clean test
