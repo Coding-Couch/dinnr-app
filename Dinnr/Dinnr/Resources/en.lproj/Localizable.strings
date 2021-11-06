@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Dinnr
+
+  Created by Brent Mifsud on 2021-11-06.
+  
+*/
+
+"Sidebar.Button.Back.Title" = "Sidebar";
+"Sidebar.Placeholder.Title" = "Press \"< Sidebar\" to make a selection...";
+"Section.Title.Create" = "Create";
+"Section.Title.Explore" = "Explore";
+"Section.Title.Settings" = "Settings";
