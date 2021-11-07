@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CreatePage: View {
     @State var recipe: Recipe = Recipe()
+    @State var isDisplayingConfirmation: Bool = false
+    @State var prepTime: Date = .now {
+        didSet {
+            print(prepTime)
+        }
+    }
     
     @ViewBuilder private func addIngredientView() -> some View {
-        ForEach($recipe.ingredients) { ingredient in
-            IngredientView(ingredient: ingredient)
-                .padding()
-        }
-        
         Button {
             withAnimation {
                 recipe.addIngredient()
@@ -31,8 +32,6 @@ struct CreatePage: View {
     }
     
     @ViewBuilder private func addInstructionsView() -> some View {
-        
-        
         Button {
             withAnimation {
                 recipe.addInstruction()
@@ -47,27 +46,95 @@ struct CreatePage: View {
         .padding()
     }
     
-    private func displaySavePrompt() {
+    @ViewBuilder private func instructionView(instruction: Binding<Instruction>) -> some View {
+        HStack {
+            Text("\(instruction.step.wrappedValue).")
+            TextField(LocalizedStringKey("create.instruction.textfield"), text: instruction.description)
+        }
+    }
+    
+    private func saveRecipe() {
         
     }
     
     var body: some View {
-        Form {
-            Section(LocalizedStringKey("info")) {
-                Text("Hello")
+        NavigationView {
+            Form {
+                Section(LocalizedStringKey("info")) {
+                    TextField(
+                        LocalizedStringKey("create.recipe.title"),
+                        text: $recipe.title
+                    )
+                    
+                    TextField(
+                        LocalizedStringKey("create.recipe.servings.default"),
+                        value: $recipe.servings,
+                        format: .number
+                    )
+                    
+                    HStack {
+                        Text(LocalizedStringKey("create.recipe.preptime.label"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        TimePickerView(seconds: $recipe.prepTime)
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    HStack {
+                        Text(LocalizedStringKey("create.recipe.cooktime.label"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        TimePickerView(seconds: $recipe.cookTime)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                
+                Section(LocalizedStringKey("ingredients")) {
+                    ForEach($recipe.ingredients) { ingredient in
+                        IngredientView(ingredient: ingredient)
+                            .padding()
+                    }
+                    .onDelete { indexSet in
+                        recipe.removeIngredient(indexSet: indexSet)
+                    }
+                    addIngredientView()
+                }
+                
+                Section(LocalizedStringKey("instructions")) {
+                    ForEach($recipe.instructions) { instruction in
+                        instructionView(instruction: instruction)
+                            .padding()
+                    }
+                    .onDelete { indexSet in
+                        recipe.removeInstruction(indexSet: indexSet)
+                    }
+                    addInstructionsView()
+                }
             }
-            Section(LocalizedStringKey("ingredients")) {
-                addIngredientView()
+            .frame(maxHeight: .infinity, alignment: .top)
+            .navigationTitle(LocalizedStringKey("create_recipe"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button(LocalizedStringKey("save")) {
+                    isDisplayingConfirmation = true
+                }
             }
-            Section(LocalizedStringKey("instructions")) {
-                addInstructionsView()
-            }
-        }
-        .frame(maxHeight: .infinity, alignment: .top)
-        .toolbar {
-            Button(LocalizedStringKey("save")) {
-                displaySavePrompt()
-            }
+            .alert(LocalizedStringKey("create.alert.confirmation.title"),
+                   isPresented: $isDisplayingConfirmation,
+                   actions: {
+                Button(
+                    LocalizedStringKey("create.alert.confirmation.button.save")
+                ) {
+                    saveRecipe()
+                }
+                Button(
+                    LocalizedStringKey("create.alert.confirmation.button.cancel"),
+                    role: .cancel,
+                    action: {}
+                )
+            }, message: {
+                Text(
+                    LocalizedStringKey("create.alert.confirmation.message")
+                )
+            })
         }
     }
 }

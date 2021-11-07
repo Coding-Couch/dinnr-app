@@ -27,7 +27,7 @@ struct Recipe: Identifiable, Hashable {
         self.prepTime = 0
         self.cookTime = 0
         self.ingredients = [Ingredient()]
-        self.instructions = []
+        self.instructions = [Instruction(step: 1)]
         self.tags = []
     }
     
@@ -45,8 +45,8 @@ struct Recipe: Identifiable, Hashable {
         self.ingredients.append(Ingredient())
     }
     
-    mutating func remove(index: Int) {
-        self.ingredients.remove(at: index)
+    mutating func removeIngredient(indexSet: IndexSet) {
+        self.ingredients.remove(atOffsets: indexSet)
     }
     
     mutating func addInstruction() {
@@ -54,4 +54,9 @@ struct Recipe: Identifiable, Hashable {
         let instruction = Instruction(step: step)
         self.instructions.append(instruction)
     }
+    
+    mutating func removeInstruction(indexSet: IndexSet) {
+        self.instructions.remove(atOffsets: indexSet)
+    }
+    
 }

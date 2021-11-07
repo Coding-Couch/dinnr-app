@@ -16,6 +16,7 @@ struct RootPage: View {
         NavigationView {
             rootView(for: sizeClass)
         }
+        .navigationBarHidden(true)
         .navigationViewStyle(.stack)
     }
 

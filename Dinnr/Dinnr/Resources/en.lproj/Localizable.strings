@@ -11,3 +11,11 @@
 "Tab.Title.Create" = "Create";
 "Tab.Title.Explore" = "Explore";
 "Tab.Title.Settings" = "Settings";
+"create.recipe.preptime.label" = "Prep Time";
+"create.recipe.cooktime.label" = "Cook Time";
+"create.recipe.servings.default" = "Servings";
+"create.instruction.textfield" = "Pour the milk into the bowl...";
+"create.alert.confirmation.title" = "Are you sure?";
+"create.alert.confirmation.message" = "Once created, recipes cannot be changed!";
+"create.alert.confirmation.button.cancel" = "Cancel";
+"create.alert.confirmation.button.save" = "Save";
