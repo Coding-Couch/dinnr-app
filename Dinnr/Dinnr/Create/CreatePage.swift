@@ -10,35 +10,15 @@ import SwiftUI
 struct CreatePage: View {
     @State var recipe: Recipe = Recipe()
     @State var isDisplayingConfirmation: Bool = false
-    @State var prepTime: Date = .now {
-        didSet {
-            print(prepTime)
-        }
-    }
     
-    @ViewBuilder private func addIngredientView() -> some View {
+    @ViewBuilder private func addButton(_ text: LocalizedStringKey, action: @escaping () -> Void) -> some View {
         Button {
             withAnimation {
-                recipe.addIngredient()
+                action()
             }
         } label: {
             Label(
-                LocalizedStringKey("add_ingredient"),
-                systemImage: "plus.circle.fill"
-            )
-        }
-        .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding()
-    }
-    
-    @ViewBuilder private func addInstructionsView() -> some View {
-        Button {
-            withAnimation {
-                recipe.addInstruction()
-            }
-        } label: {
-            Label(
-                LocalizedStringKey("add_instruction"),
+                text,
                 systemImage: "plus.circle.fill"
             )
         }
@@ -95,7 +75,9 @@ struct CreatePage: View {
                     .onDelete { indexSet in
                         recipe.removeIngredient(indexSet: indexSet)
                     }
-                    addIngredientView()
+                    addButton(LocalizedStringKey("add_ingredient")) {
+                        recipe.addIngredient()
+                    }
                 }
                 
                 Section(LocalizedStringKey("create.section.instructions")) {
@@ -106,14 +88,22 @@ struct CreatePage: View {
                     .onDelete { indexSet in
                         recipe.removeInstruction(indexSet: indexSet)
                     }
-                    addInstructionsView()
+                    addButton(LocalizedStringKey("add_instruction")) {
+                        recipe.addInstruction()
+                    }
                 }
                 
                 Section(LocalizedStringKey("create.section.tags")) {
-                    TagCreationView(tags: $recipe.tags)
-                        .frame(maxHeight: .infinity)
+                    ForEach($recipe.tags, id: \.self) { tag in
+                        TextField("Beginner, Vegan, Spicy, etc...", text: tag)
+                    }
+                    .onDelete { indexSet in
+                        recipe.tags.remove(atOffsets: indexSet)
+                    }
+                    addButton(LocalizedStringKey("add_tag")) {
+                        recipe.tags.append("")
+                    }
                 }
-                .frame(maxHeight: .infinity)
                 
             }
             .frame(maxHeight: .infinity, alignment: .top)
@@ -141,7 +131,8 @@ struct CreatePage: View {
                 Text(
                     LocalizedStringKey("create.alert.confirmation.message")
                 )
-            })
+            }
+            )
         }
     }
 }

@@ -12,7 +12,6 @@ struct TagCreationView: View {
     @Binding var tags: [String]
     
     var body: some View {
-        Form {
             VStack {
                 TextField("Placeholder", text: $text)
                     .onSubmit {
@@ -32,7 +31,6 @@ struct TagCreationView: View {
                 .frame(maxHeight: .infinity)
                 .fixedSize(horizontal: false, vertical: true)
             }
-        }
     }
 }
 

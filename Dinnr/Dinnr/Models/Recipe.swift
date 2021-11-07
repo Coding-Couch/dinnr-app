@@ -27,8 +27,8 @@ struct Recipe: Identifiable, Codable, Hashable {
         self.prepTime = 0
         self.cookTime = 0
         self.ingredients = [Ingredient()]
-        self.instructions = [Instruction(step: 1)]
-        self.tags = []
+        self.instructions = [Instruction(step: 1), Instruction(step: 2), Instruction(step: 3)]
+        self.tags = [""]
     }
     
     let id: UUID
