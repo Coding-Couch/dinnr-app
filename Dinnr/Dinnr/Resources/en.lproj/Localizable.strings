@@ -6,6 +6,7 @@
   
 */
 
+"Common.ProgressView.Loading" = "Loading...";
 "Sidebar.Button.Back.Title" = "Sidebar";
 "Sidebar.Placeholder.Title" = "Press \"< Sidebar\" to make a selection...";
 "Tab.Title.Create" = "Create";
@@ -19,3 +20,8 @@
 "create.alert.confirmation.message" = "Once created, recipes cannot be changed!";
 "create.alert.confirmation.button.cancel" = "Cancel";
 "create.alert.confirmation.button.save" = "Save";
+"Explore.NavigationBar.Title" = "Dinnr";
+"Explore.SearchBar.Prompt" = "Search Recipes";
+"Explore.EmptyMessage.Error %@" = "There was an error fetching search results: %@";
+"Explore.EmptyMessage.Empty" = "There were no search results!. Try adding your own recipe from the create page.";
+"Explore.EmptyMessage.InitialState" = "Looking to cook something new? You're in the right place!";

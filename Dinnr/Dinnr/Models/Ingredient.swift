@@ -22,6 +22,7 @@ struct Ingredient: Identifiable, Hashable {
         self.unit = .count
     }
     
+struct Ingredient: Identifiable, Codable, Hashable {
     let id: UUID = UUID()
     var name: String
     var image: URL?
