@@ -13,8 +13,7 @@ struct TabBar: View {
 
     var body: some View {
         TabView(selection: $selectedSection) {
-            #warning("TODO - Add creation page")
-            Text(selectedSection.localizationKey)
+            CreatePage()
                 .tabItem {
                     Label(Tab.recipeCreation.localizationKey, systemImage: Tab.recipeCreation.icon)
                 }
@@ -33,7 +32,6 @@ struct TabBar: View {
                 }
                 .tag(Tab.settings)
         }
-        .navigationBarHidden(true)
     }
 }
 

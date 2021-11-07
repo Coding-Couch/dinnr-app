@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Instruction: Identifiable, Codable, Hashable {
-    let id: UUID
+struct Instruction: Identifiable, Hashable, Codable {
+    var step: Int
     var image: URL?
-    var description: String
+    var description: String = ""
+    
+    var id: Int { step }
 }

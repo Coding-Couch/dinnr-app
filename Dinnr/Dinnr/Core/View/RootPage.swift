@@ -18,6 +18,7 @@ struct RootPage: View {
             rootView(for: sizeClass)
                 .environmentObject(exploreViewModel)
         }
+        .navigationBarHidden(true)
         .navigationViewStyle(.stack)
         .navigationBarHidden(true)
     }

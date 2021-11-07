@@ -177,15 +177,15 @@ fileprivate extension ExplorePage.ViewModel {
         prepTime: 30,
         cookTime: 30,
         ingredients: [
-            .init(id: .init(), name: "Semen", amount: .init(value: 1.0, unit: .cups), image: nil)
+            .init(name: "Semen", amount: 2, unit: .volume(volumeUnit: .cups), image: nil)
         ],
         instructions: [
-            .init(id: .init(), image: nil, description: "Mix eggs into flour"),
-            .init(id: .init(), image: nil, description: "Put it in an oiled baking pan."),
-            .init(id: .init(), image: nil, description: "Bake on 325 f for 1 hour. Periodically checking consistency."),
-            .init(id: .init(), image: nil, description: "Take out of the oven when desired consistency is achieved."),
-            .init(id: .init(), image: nil, description: "Let cool!"),
-            .init(id: .init(), image: nil, description: "Apply frosting and decorations!")
+            .init(step: .init(), image: nil, description: "Mix eggs into flour"),
+            .init(step: .init(), image: nil, description: "Put it in an oiled baking pan."),
+            .init(step: .init(), image: nil, description: "Bake on 325 f for 1 hour. Periodically checking consistency."),
+            .init(step: .init(), image: nil, description: "Take out of the oven when desired consistency is achieved."),
+            .init(step: .init(), image: nil, description: "Let cool!"),
+            .init(step: .init(), image: nil, description: "Apply frosting and decorations!")
         ],
         tags: ["dessert", "good-for-parties"]
     )
