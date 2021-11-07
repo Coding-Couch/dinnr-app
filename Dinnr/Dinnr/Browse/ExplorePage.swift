@@ -13,9 +13,13 @@ struct ExplorePage: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List(selection: $viewModel.selectedRecipe) {
+                List {
                     ForEach(viewModel.recipes) { recipe in
-                        RecipeListCellView(recipe: recipe)
+                        NavigationLink {
+                            RecipeDetailView(recipe: recipe)
+                        } label: {
+                            RecipeListCellView(recipe: recipe)
+                        }
                     }
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }

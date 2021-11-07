@@ -35,11 +35,11 @@ struct IngredientSearchView: View {
 struct IngredientSearchView_Previews: PreviewProvider {
     struct TestView: View {
         @State var ingredient: Ingredient = Ingredient()
-        
+
         var body: some View {
             IngredientSearchView(ingredient: $ingredient)        }
     }
-    
+
     static var previews: some View {
         TestView()
     }

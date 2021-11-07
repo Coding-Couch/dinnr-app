@@ -9,10 +9,10 @@ import SwiftUI
 
 struct IngredientView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
-    
+
     @Binding var ingredient: Ingredient
     @State var isSearching: Bool = false
-    
+
     private var iPadView: some View {
         HStack {
             AsyncImage(url: ingredient.image)
@@ -20,7 +20,7 @@ struct IngredientView: View {
             inputView
         }
     }
-    
+
     private var iPhoneView: some View {
         VStack {
             AsyncImage(url: ingredient.image)
@@ -28,7 +28,7 @@ struct IngredientView: View {
             inputView
         }
     }
-    
+
     private var nameInputView: some View {
         HStack {
             TextField(
@@ -38,14 +38,14 @@ struct IngredientView: View {
             Image(systemName: "camera")
         }
     }
-    
+
     private var inputView: some View {
         VStack {
             nameInputView
             AmountView(value: $ingredient.amount, unitType: $ingredient.unit)
         }
     }
-    
+
     @ViewBuilder private func deviceSpecificView() -> some View {
         switch sizeClass {
         case .compact:
@@ -54,11 +54,11 @@ struct IngredientView: View {
             iPadView
         }
     }
-    
+
     var body: some View {
         deviceSpecificView()
             .sheet(isPresented: $isSearching) {
-                
+
             } content: {
                 IngredientSearchView(ingredient: $ingredient)
             }
@@ -69,11 +69,11 @@ struct IngredientView: View {
 struct IngredientView_Previews: PreviewProvider {
     struct TestView: View {
         @State var ingredient: Ingredient = Ingredient()
-        
+
         var body: some View {
             IngredientView(ingredient: $ingredient)        }
     }
-    
+
     static var previews: some View {
         TestView()
             .previewInterfaceOrientation(.portrait)

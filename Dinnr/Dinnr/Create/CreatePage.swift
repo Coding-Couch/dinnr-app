@@ -10,7 +10,7 @@ import SwiftUI
 struct CreatePage: View {
     @State var recipe: Recipe = Recipe()
     @State var isDisplayingConfirmation: Bool = false
-    
+
     @ViewBuilder private func addButton(_ text: LocalizedStringKey, action: @escaping () -> Void) -> some View {
         Button {
             withAnimation {
@@ -25,18 +25,18 @@ struct CreatePage: View {
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding()
     }
-    
+
     @ViewBuilder private func instructionView(instruction: Binding<Instruction>) -> some View {
         HStack {
             Text("\(instruction.step.wrappedValue).")
             TextField(LocalizedStringKey("create.instruction.textfield"), text: instruction.description)
         }
     }
-    
+
     private func saveRecipe() {
         print(recipe)
     }
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -45,7 +45,7 @@ struct CreatePage: View {
                         LocalizedStringKey("create.recipe.title.placeholder"),
                         text: $recipe.title
                     )
-                    
+
                     HStack {
                         TextField(
                             LocalizedStringKey("create.recipe.servings.placeholder"),
@@ -55,16 +55,16 @@ struct CreatePage: View {
                             .multilineTextAlignment(.trailing)
                             .frame(maxWidth: .infinity, alignment: .trailing)
                         Text(LocalizedStringKey("create.recipe.servings"))
-                            
+
                     }
-                    
+
                     HStack {
                         Text(LocalizedStringKey("create.recipe.preptime.label"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         TimePickerView(seconds: $recipe.prepTime)
                     }
                     .frame(maxWidth: .infinity)
-                    
+
                     HStack {
                         Text(LocalizedStringKey("create.recipe.cooktime.label"))
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,7 +72,7 @@ struct CreatePage: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                
+
                 Section(LocalizedStringKey("create.section.ingredients")) {
                     ForEach($recipe.ingredients) { ingredient in
                         IngredientView(ingredient: ingredient)
@@ -85,7 +85,7 @@ struct CreatePage: View {
                         recipe.addIngredient()
                     }
                 }
-                
+
                 Section(LocalizedStringKey("create.section.instructions")) {
                     ForEach($recipe.instructions) { instruction in
                         instructionView(instruction: instruction)
@@ -98,7 +98,7 @@ struct CreatePage: View {
                         recipe.addInstruction()
                     }
                 }
-                
+
                 Section(LocalizedStringKey("create.section.tags")) {
                     ForEach($recipe.tags, id: \.self) { tag in
                         TextField("Beginner, Vegan, Spicy, etc...", text: tag)
@@ -110,7 +110,7 @@ struct CreatePage: View {
                         recipe.tags.append("")
                     }
                 }
-                
+
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .navigationTitle(LocalizedStringKey("create_recipe"))

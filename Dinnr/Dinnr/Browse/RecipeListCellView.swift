@@ -18,26 +18,9 @@ struct RecipeListCellView: View {
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                AsyncImage(url: recipe.bannerImage, transaction: .init(animation: .interactiveSpring())) { imagePhase in
-                    switch imagePhase {
-                    case .empty:
-                        Color(uiColor: .tertiarySystemFill)
-                            .overlay(
-                                ProgressView().progressViewStyle(.circular)
-                                    .scaleEffect(2.0)
-                            )
-                    case let .success(image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    case .failure:
-                        AsyncImagePlaceholderView()
-                    @unknown default:
-                        AsyncImagePlaceholderView()
-                    }
-                }
-                .frame(maxWidth: .infinity, idealHeight: 240, maxHeight: 240)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                RecipeBannerImage(url: recipe.bannerImage)
+                    .frame(maxWidth: .infinity, idealHeight: 240, maxHeight: 240)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .frame(maxWidth: .infinity)
             .padding(16)
@@ -45,7 +28,7 @@ struct RecipeListCellView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     TagView(
-                        text: "\(recipe.prepTime + recipe.cookTime) seconds",
+                        text: "\((recipe.prepTime + recipe.cookTime).formattedTime)",
                         icon: Image(systemName: "clock")
                     )
 
@@ -62,6 +45,7 @@ struct RecipeListCellView: View {
     }
 }
 
+// swiftlint:disable line_length
 struct RecipeListCellView_Previews: PreviewProvider {
     static let mockRecipe: Recipe = .init(
         id: .init(),
@@ -89,3 +73,4 @@ struct RecipeListCellView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+// swiftlint:enable line_length

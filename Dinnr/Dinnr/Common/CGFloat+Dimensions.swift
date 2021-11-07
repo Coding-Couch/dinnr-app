@@ -11,7 +11,7 @@ extension CGFloat {
     static var cornerSharp: CGFloat = 4
     static var cornerRound: CGFloat = 16
     static var cornerCapsule: CGFloat = 24
-    
+
     static var paddingTiny: CGFloat = 2
     static var paddingSmall: CGFloat = 4
     static var paddingMedium: CGFloat = 8
