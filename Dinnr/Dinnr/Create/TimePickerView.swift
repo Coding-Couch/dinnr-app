@@ -20,8 +20,8 @@ struct TimePickerView: View {
     
     @Binding var seconds: Int
     
-    var hourRange: ClosedRange<Int> = 0...48
-    let minuteRange: ClosedRange<Int> = 0...60
+    var hourRange: ClosedRange<Int> = 0...47
+    let minuteRange: ClosedRange<Int> = 0...59
     
     func convertToSeconds(hours: Int, minutes: Int) -> Int {
         let hoursMeasurement = Measurement<UnitDuration>(value: Double(hours), unit: .hours)

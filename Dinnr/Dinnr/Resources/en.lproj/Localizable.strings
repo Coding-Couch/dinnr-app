@@ -12,6 +12,10 @@
 "Tab.Title.Create" = "Create";
 "Tab.Title.Explore" = "Explore";
 "Tab.Title.Settings" = "Settings";
+"create.section.info" = "Info";
+"create.recipe.title.placeholder" = "ex. Awesome Curry Recipe";
+"create.recipe.servings" = "Servings";
+"create.recipe.servings.placeholder" = "ex. 4";
 "create.recipe.preptime.label" = "Prep Time";
 "create.recipe.cooktime.label" = "Cook Time";
 "create.recipe.servings.default" = "Servings";

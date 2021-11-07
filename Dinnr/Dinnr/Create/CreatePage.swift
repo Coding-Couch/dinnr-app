@@ -42,15 +42,21 @@ struct CreatePage: View {
             Form {
                 Section(LocalizedStringKey("create.section.info")) {
                     TextField(
-                        LocalizedStringKey("create.recipe.title"),
+                        LocalizedStringKey("create.recipe.title.placeholder"),
                         text: $recipe.title
                     )
                     
-                    TextField(
-                        LocalizedStringKey("create.recipe.servings.default"),
-                        value: $recipe.servings,
-                        format: .number
-                    )
+                    HStack {
+                        TextField(
+                            LocalizedStringKey("create.recipe.servings.placeholder"),
+                            value: $recipe.servings,
+                            format: .number
+                        )
+                            .multilineTextAlignment(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                        Text(LocalizedStringKey("create.recipe.servings"))
+                            
+                    }
                     
                     HStack {
                         Text(LocalizedStringKey("create.recipe.preptime.label"))
