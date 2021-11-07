@@ -54,13 +54,13 @@ struct CreatePage: View {
     }
     
     private func saveRecipe() {
-        
+        print(recipe)
     }
     
     var body: some View {
         NavigationView {
             Form {
-                Section(LocalizedStringKey("info")) {
+                Section(LocalizedStringKey("create.section.info")) {
                     TextField(
                         LocalizedStringKey("create.recipe.title"),
                         text: $recipe.title
@@ -87,7 +87,7 @@ struct CreatePage: View {
                     .frame(maxWidth: .infinity)
                 }
                 
-                Section(LocalizedStringKey("ingredients")) {
+                Section(LocalizedStringKey("create.section.ingredients")) {
                     ForEach($recipe.ingredients) { ingredient in
                         IngredientView(ingredient: ingredient)
                             .padding()
@@ -98,7 +98,7 @@ struct CreatePage: View {
                     addIngredientView()
                 }
                 
-                Section(LocalizedStringKey("instructions")) {
+                Section(LocalizedStringKey("create.section.instructions")) {
                     ForEach($recipe.instructions) { instruction in
                         instructionView(instruction: instruction)
                             .padding()
@@ -108,6 +108,13 @@ struct CreatePage: View {
                     }
                     addInstructionsView()
                 }
+                
+                Section(LocalizedStringKey("create.section.tags")) {
+                    TagCreationView(tags: $recipe.tags)
+                        .frame(maxHeight: .infinity)
+                }
+                .frame(maxHeight: .infinity)
+                
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .navigationTitle(LocalizedStringKey("create_recipe"))

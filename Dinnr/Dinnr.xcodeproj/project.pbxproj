@@ -33,6 +33,8 @@
 		9D4EC0C42737592200A050A6 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C32737592200A050A6 /* TimePickerView.swift */; };
 		9D4EC0C627375EE000A050A6 /* Color+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C527375EE000A050A6 /* Color+Assets.swift */; };
 		9D4EC0C8273776EC00A050A6 /* CGFloat+Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C7273776EC00A050A6 /* CGFloat+Dimensions.swift */; };
+		9D4EC0CA2737871F00A050A6 /* TagCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C92737871F00A050A6 /* TagCreationView.swift */; };
+		9D4EC0CC27378D1000A050A6 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0CB27378D1000A050A6 /* FlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		9D4EC0C32737592200A050A6 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		9D4EC0C527375EE000A050A6 /* Color+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Assets.swift"; sourceTree = "<group>"; };
 		9D4EC0C7273776EC00A050A6 /* CGFloat+Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Dimensions.swift"; sourceTree = "<group>"; };
+		9D4EC0C92737871F00A050A6 /* TagCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreationView.swift; sourceTree = "<group>"; };
+		9D4EC0CB27378D1000A050A6 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,8 @@
 				9D4EC0BF2735D8EA00A050A6 /* AmountView.swift */,
 				9D4EC0C12737118E00A050A6 /* IngredientSearchView.swift */,
 				9D4EC0C32737592200A050A6 /* TimePickerView.swift */,
+				9D4EC0C92737871F00A050A6 /* TagCreationView.swift */,
+				9D4EC0CB27378D1000A050A6 /* FlowLayout.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -442,6 +448,8 @@
 				9D4EC0BC2735CF7C00A050A6 /* Ingredient.swift in Sources */,
 				848D95C92735C5D000126072 /* DinnrApp.swift in Sources */,
 				9D4EC0C8273776EC00A050A6 /* CGFloat+Dimensions.swift in Sources */,
+				9D4EC0CC27378D1000A050A6 /* FlowLayout.swift in Sources */,
+				9D4EC0CA2737871F00A050A6 /* TagCreationView.swift in Sources */,
 				9D4EC0BA2735CF5D00A050A6 /* Recipe.swift in Sources */,
 				9D4EC0C22737118E00A050A6 /* IngredientSearchView.swift in Sources */,
 				84FC7278273660FA00618F1C /* TabBar.swift in Sources */,

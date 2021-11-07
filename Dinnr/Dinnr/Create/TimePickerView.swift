@@ -10,12 +10,13 @@ import Combine
 import Foundation
 
 struct TimePickerView: View {
+    
     class ViewModel: ObservableObject {
         @Published var hours: Int = 0
         @Published var minutes: Int = 0
     }
     
-    @ObservedObject private var viewModel: ViewModel = ViewModel()
+    @StateObject private var viewModel: ViewModel = ViewModel()
     
     @Binding var seconds: Int
     
