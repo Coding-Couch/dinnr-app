@@ -8,7 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct Ingredient: Identifiable, Hashable {
+struct Ingredient: Identifiable, Codable, Hashable {
+    let id: UUID = UUID()
+    var name: String
+    var image: URL?
+    var amount: Double
+    var unit: IngredientAmountType
+    
     init(name: String, amount: Double, unit: IngredientAmountType, image: URL? = nil) {
         self.name = name
         self.amount = amount
@@ -21,16 +27,9 @@ struct Ingredient: Identifiable, Hashable {
         self.amount = 0.0
         self.unit = .count
     }
-    
-struct Ingredient: Identifiable, Codable, Hashable {
-    let id: UUID = UUID()
-    var name: String
-    var image: URL?
-    var amount: Double
-    var unit: IngredientAmountType
 }
 
-enum IngredientAmountType: CustomStringConvertible, Hashable, Identifiable {
+enum IngredientAmountType: CustomStringConvertible, Hashable, Identifiable, Codable {
     var description: String {
         switch self {
         case .mass(let massUnit):
@@ -61,7 +60,7 @@ enum IngredientAmountType: CustomStringConvertible, Hashable, Identifiable {
     }
 }
 
-enum IngredientMassUnit: String, CaseIterable {
+enum IngredientMassUnit: String, CaseIterable, Codable {
     case kilograms = "Kilograms"
     case grams = "Grams"
     case milligrams = "Milligrams"
@@ -87,7 +86,7 @@ enum IngredientMassUnit: String, CaseIterable {
     }
 }
 
-enum IngredientVolumeUnit: String, CaseIterable {
+enum IngredientVolumeUnit: String, CaseIterable, Codable {
     case liters = "Liters"
     case milliliters = "Milliliters"
     case bushels = "Bushels"

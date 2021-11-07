@@ -212,7 +212,6 @@
 		848D9600273601F000126072 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				848D96012736020A00126072 /* PreviewDevice+Device.swift */,
 				9D4EC0C527375EE000A050A6 /* Color+Assets.swift */,
 				9D4EC0C7273776EC00A050A6 /* CGFloat+Dimensions.swift */,
 				8451AE5A273845B70075D56F /* Extension */,

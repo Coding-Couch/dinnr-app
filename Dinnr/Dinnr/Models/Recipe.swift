@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable, Hashable {
+struct Recipe: Identifiable, Codable, Hashable {
     init(id: UUID = UUID(), servings: Int, bannerImage: URL, title: String, prepTime: Int, cookTime: Int, ingredients: [Ingredient], instructions: [Instruction], tags: [String]) {
         self.id = id
         self.servings = servings

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Instruction: Identifiable, Hashable {
+struct Instruction: Identifiable, Hashable, Codable {
     var step: Int
     var image: URL?
     var description: String = ""
