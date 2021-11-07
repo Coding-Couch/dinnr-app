@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol NetworkClient {
     var delegate: URLSessionTaskDelegate? { get }
@@ -14,6 +15,55 @@ protocol NetworkClient {
         with request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) async throws -> Response
+
+    func publisher<Request, Response: Codable>(
+        of request: NetworkRequest<Request>,
+        decodingInto type: Response.Type
+    ) -> AnyPublisher<Response, Error>
+}
+
+class MockNetworkClient<T: Codable>: NetworkClient {
+    enum MockNetworkError: Error {
+        case invalidType
+        case noResponse
+    }
+
+    var mockResponse: T?
+    var error: Error?
+
+    weak var delegate: URLSessionTaskDelegate?
+
+    func request<Request, Response: Codable>(
+        with request: NetworkRequest<Request>,
+        decodingInto type: Response.Type
+    ) async throws -> Response {
+        if let error = error {
+            throw error
+        }
+
+        guard let mockResponse = mockResponse, let response = mockResponse as? Response else {
+            throw MockNetworkError.noResponse
+        }
+
+        return response
+    }
+
+    func publisher<Request, Response: Codable>(
+        of request: NetworkRequest<Request>,
+        decodingInto type: Response.Type
+    ) -> AnyPublisher<Response, Error> {
+        if let error = error {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+
+        guard let mockResponse = mockResponse, let response = mockResponse as? Response else {
+            return Fail(error: MockNetworkError.noResponse).eraseToAnyPublisher()
+        }
+
+        return Just(response)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
 }
 
 final class DefaultNetworkClient: NetworkClient {
@@ -60,5 +110,31 @@ final class DefaultNetworkClient: NetworkClient {
         let response = try decoder.decode(type.self, from: data)
 
         return response
+    }
+
+    func publisher<Request, Response: Codable>(
+        of request: NetworkRequest<Request>,
+        decodingInto type: Response.Type
+    ) -> AnyPublisher<Response, Error> {
+        do {
+            let request = try request.urlRequest
+
+            return urlSession.dataTaskPublisher(for: request)
+                .tryMap { (data, urlResponse) -> Data in
+                    guard let httpResponse = urlResponse as? HTTPURLResponse else {
+                        throw NetworkError.urlResponse(urlResponse: urlResponse)
+                    }
+
+                    guard httpResponse.isSuccess else {
+                        throw NetworkError.httpStatus(statusCode: httpResponse.statusCode)
+                    }
+
+                    return data
+                }
+                .decode(type: Response.self, decoder: decoder)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     }
 }

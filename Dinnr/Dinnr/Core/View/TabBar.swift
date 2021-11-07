@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBar: View {
+    @EnvironmentObject var exploreViewModel: ExplorePage.ViewModel
     @Binding var selectedSection: Tab
 
     var body: some View {
@@ -19,13 +20,12 @@ struct TabBar: View {
                 }
                 .tag(Tab.recipeCreation)
 
-            #warning("TODO - Add search page")
-            Text(selectedSection.localizationKey)
+            ExplorePage(viewModel: exploreViewModel)
                 .tabItem {
                     Label(Tab.recipeSearch.localizationKey, systemImage: Tab.recipeSearch.icon)
                 }
                 .tag(Tab.recipeSearch)
-            
+
             #warning("TODO - Add Settings page")
             Text(selectedSection.localizationKey)
                 .tabItem {

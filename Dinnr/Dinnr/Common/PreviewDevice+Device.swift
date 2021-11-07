@@ -1,3 +1,4 @@
+// swiftlint:disable identifier_name
 //
 //  PreviewDevice+Device.swift
 //  Dinnr
@@ -11,7 +12,7 @@ extension PreviewDevice {
     init(_ type: Device) {
         self.init(stringLiteral: type.rawValue)
     }
-    
+
     enum Device: String {
         case iPhone_4s = "iPhone 4s"
         case iPhone_5 = "iPhone 5"

@@ -6,8 +6,14 @@
   
 */
 
+"Common.ProgressView.Loading" = "Loading...";
 "Sidebar.Button.Back.Title" = "Sidebar";
 "Sidebar.Placeholder.Title" = "Press \"< Sidebar\" to make a selection...";
 "Tab.Title.Create" = "Create";
 "Tab.Title.Explore" = "Explore";
 "Tab.Title.Settings" = "Settings";
+"Explore.NavigationBar.Title" = "Dinnr";
+"Explore.SearchBar.Prompt" = "Search Recipes";
+"Explore.EmptyMessage.Error %@" = "There was an error fetching search results: %@";
+"Explore.EmptyMessage.Empty" = "There were no search results!. Try adding your own recipe from the create page.";
+"Explore.EmptyMessage.InitialState" = "Looking to cook something new? You're in the right place!";

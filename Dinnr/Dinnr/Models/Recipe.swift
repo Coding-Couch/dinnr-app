@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable {
+struct Recipe: Identifiable, Codable, Hashable {
     let id: UUID
     var servings: Int
     var bannerImage: URL
