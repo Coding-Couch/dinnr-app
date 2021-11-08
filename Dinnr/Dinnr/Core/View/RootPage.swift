@@ -14,13 +14,8 @@ struct RootPage: View {
 
     var body: some View {
         #warning("TODO - Handle landscape sidebar nav")
-        NavigationView {
-            rootView(for: sizeClass)
-                .environmentObject(exploreViewModel)
-        }
-        .navigationBarHidden(true)
-        .navigationViewStyle(.stack)
-        .navigationBarHidden(true)
+        rootView(for: sizeClass)
+            .environmentObject(exploreViewModel)
     }
 
     @ViewBuilder private func rootView(for: UserInterfaceSizeClass?) -> some View {

@@ -162,31 +162,38 @@ extension ExplorePage {
                 return
             }
 
-            client.mockResponse = Array(repeating: Self.mockRecipe, count: 10)
+            client.mockResponse = Array(repeating: Recipe.createMock(), count: 10)
         }
         #endif
     }
 }
 
-fileprivate extension ExplorePage.ViewModel {
-    static let mockRecipe: Recipe = .init(
-        id: .init(),
-        servings: 2,
-        bannerImage: URL(string: "https://upload.wikimedia.org/wikipedia/commons/0/04/Pound_layer_cake.jpg")!,
-        title: "Birthday Cake",
-        prepTime: 30,
-        cookTime: 30,
-        ingredients: [
-            .init(name: "Semen", amount: 2, unit: .volume(volumeUnit: .cups), image: nil)
-        ],
-        instructions: [
-            .init(step: .init(), image: nil, description: "Mix eggs into flour"),
-            .init(step: .init(), image: nil, description: "Put it in an oiled baking pan."),
-            .init(step: .init(), image: nil, description: "Bake on 325 f for 1 hour. Periodically checking consistency."),
-            .init(step: .init(), image: nil, description: "Take out of the oven when desired consistency is achieved."),
-            .init(step: .init(), image: nil, description: "Let cool!"),
-            .init(step: .init(), image: nil, description: "Apply frosting and decorations!")
-        ],
-        tags: ["dessert", "good-for-parties"]
-    )
+// swiftling:disable line_length
+fileprivate extension Recipe {
+    static func createMock() -> Recipe {
+        .init(
+            id: .init(),
+            servings: 2,
+            bannerImage: URL(string: "https://upload.wikimedia.org/wikipedia/commons/0/04/Pound_layer_cake.jpg")!,
+            title: "Birthday Cake",
+            prepTime: 1800,
+            cookTime: 3600,
+            ingredients: [
+                .init(name: "Egg", amount: 12, unit: .count, image: nil),
+                .init(name: "Egg", amount: 1, unit: .volume(volumeUnit: .cups), image: nil),
+                .init(name: "Egg", amount: 2, unit: .volume(volumeUnit: .cups), image: nil),
+                .init(name: "Egg", amount: 250, unit: .volume(volumeUnit: .milliliters), image: nil)
+                ],
+            instructions: [
+                .init(step: 1, image: nil, description: "Mix eggs into flour"),
+                .init(step: 2, image: nil, description: "Put it in an oiled baking pan."),
+                .init(step: 3, image: nil, description: "Bake on 325 f for 1 hour. Periodically checking consistency."),
+                .init(step: 4, image: nil, description: "Take out of the oven when desired consistency is achieved."),
+                .init(step: 5, image: nil, description: "Let cool!"),
+                .init(step: 6, image: nil, description: "Apply frosting and decorations!")
+            ],
+            tags: ["dessert", "good-for-parties"]
+        )
+    }
 }
+// swiftling:disable line_length

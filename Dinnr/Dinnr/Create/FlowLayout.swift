@@ -11,16 +11,16 @@ struct FlowLayout< T: Hashable, V: View>: View {
     let mode: Mode
     let items: [T]
     let viewMapping: (T) -> V
-    
+
     @State private var totalHeight: CGFloat
-    
+
     init(mode: Mode, items: [T], viewMapping: @escaping (T) -> V) {
         self.mode = mode
         self.items = items
         self.viewMapping = viewMapping
         _totalHeight = State(initialValue: (mode == .scrollable) ? .zero : .infinity)
     }
-    
+
     var body: some View {
         let stack = VStack {
             GeometryReader { geometry in
@@ -35,28 +35,28 @@ struct FlowLayout< T: Hashable, V: View>: View {
             }
         }
     }
-    
-    private func content(in g: GeometryProxy) -> some View {
+
+    private func content(in proxy: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
         return ZStack(alignment: .topLeading) {
             ForEach(self.items, id: \.self) { item in
                 self.viewMapping(item)
                     .padding([.horizontal, .vertical], 4)
-                    .alignmentGuide(.leading, computeValue: { d in
-                        if (abs(width - d.width) > g.size.width) {
+                    .alignmentGuide(.leading, computeValue: { dimension in
+                        if abs(width - dimension.width) > proxy.size.width {
                             width = 0
-                            height -= d.height
+                            height -= dimension.height
                         }
                         let result = width
                         if item == self.items.last {
                             width = 0
                         } else {
-                            width -= d.width
+                            width -= dimension.width
                         }
                         return result
                     })
-                    .alignmentGuide(.top, computeValue: { d in
+                    .alignmentGuide(.top, computeValue: { _ in
                         let result = height
                         if item == self.items.last {
                             height = 0
@@ -67,7 +67,7 @@ struct FlowLayout< T: Hashable, V: View>: View {
         }
         .background(viewHeightReader($totalHeight))
     }
-    
+
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
         return GeometryReader { geo -> Color in
             DispatchQueue.main.async {
@@ -76,7 +76,7 @@ struct FlowLayout< T: Hashable, V: View>: View {
             return .clear
         }
     }
-    
+
     enum Mode {
         case scrollable, vstack
     }

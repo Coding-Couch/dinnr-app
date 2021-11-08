@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Color {
     static var accentColor = Color("AccentColor")
-    
+
     static var background = Color("Background")
     static var secondaryBackground = Color("SecondaryBackground")
     static var tertiaryBackground = Color("TertiaryBackground")

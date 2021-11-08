@@ -13,21 +13,22 @@ struct TagView: View {
     var tintColor: Color = .black
     var icon: Image?
 
-    private var tagLabel: Text {
-        guard let icon = icon else {
-            return Text(text)
+    private var tagLabel: some View {
+        Label {
+            Text(text)
+        } icon: {
+            icon
         }
-
-        return Text(icon) + Text(text)
     }
 
     var body: some View {
         tagLabel
-            .fontWeight(.semibold)
+            .font(Font.system(size: 17, weight: .semibold, design: .default))
             .padding(8)
             .padding(.horizontal, 8)
             .foregroundColor(tintColor)
             .background(Capsule().fill(color))
+            .fixedSize(horizontal: false, vertical: true)
     }
 }
 

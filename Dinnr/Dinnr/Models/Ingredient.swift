@@ -14,14 +14,18 @@ struct Ingredient: Identifiable, Codable, Hashable {
     var image: URL?
     var amount: Double
     var unit: IngredientAmountType
-    
+
+    var displayString: String {
+        "\(name) \(String(format: "%.2f", amount)) \(String(describing: unit))"
+    }
+
     init(name: String, amount: Double, unit: IngredientAmountType, image: URL? = nil) {
         self.name = name
         self.amount = amount
         self.unit = unit
         self.image = image
     }
-    
+
     init() {
         self.name = ""
         self.amount = 0.0
@@ -40,19 +44,19 @@ enum IngredientAmountType: CustomStringConvertible, Hashable, Identifiable, Coda
             return "Count"
         }
     }
-    
+
     case mass(massUnit: IngredientMassUnit)
     case volume(volumeUnit: IngredientVolumeUnit)
     case count
-    
+
     var id: UUID { UUID() }
-    
+
     static var allMassUnits: [IngredientAmountType] {
         IngredientMassUnit.allCases.map { massUnit in
             return .mass(massUnit: massUnit)
         }
     }
-    
+
     static var allVolumeUnits: [IngredientAmountType] {
         IngredientVolumeUnit.allCases.map { volumeUnit in
             return .volume(volumeUnit: volumeUnit)
@@ -67,7 +71,7 @@ enum IngredientMassUnit: String, CaseIterable, Codable {
     case ounces = "Ounces"
     case pounds = "lbs"
     case stones = "Stones"
-    
+
     var unit: UnitMass {
         switch self {
         case .kilograms:
@@ -98,7 +102,7 @@ enum IngredientVolumeUnit: String, CaseIterable, Codable {
     case quarts = "Quarts"
     case gallons = "Gallons"
     case metricCups = "Metric Cups"
-    
+
     var unit: UnitVolume {
         switch self {
         case .liters:
