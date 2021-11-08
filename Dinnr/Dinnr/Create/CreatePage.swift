@@ -81,7 +81,7 @@ struct CreatePage: View {
                     .onDelete { indexSet in
                         recipe.removeIngredient(indexSet: indexSet)
                     }
-                    addButton(LocalizedStringKey("add_ingredient")) {
+                    addButton(LocalizedStringKey("create.button.ingredient")) {
                         recipe.addIngredient()
                     }
                 }
@@ -94,7 +94,7 @@ struct CreatePage: View {
                     .onDelete { indexSet in
                         recipe.removeInstruction(indexSet: indexSet)
                     }
-                    addButton(LocalizedStringKey("add_instruction")) {
+                    addButton(LocalizedStringKey("create.button.instruction")) {
                         recipe.addInstruction()
                     }
                 }
@@ -106,17 +106,17 @@ struct CreatePage: View {
                     .onDelete { indexSet in
                         recipe.tags.remove(atOffsets: indexSet)
                     }
-                    addButton(LocalizedStringKey("add_tag")) {
+                    addButton(LocalizedStringKey("create.button.tag")) {
                         recipe.tags.append("")
                     }
                 }
                 
             }
             .frame(maxHeight: .infinity, alignment: .top)
-            .navigationTitle(LocalizedStringKey("create_recipe"))
+            .navigationTitle(LocalizedStringKey("create.navigationbar.title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button(LocalizedStringKey("save")) {
+                Button(LocalizedStringKey("create.navigationbar.button.save")) {
                     isDisplayingConfirmation = true
                 }
             }

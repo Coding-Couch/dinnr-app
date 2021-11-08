@@ -12,6 +12,8 @@ struct IngredientView: View {
     
     @Binding var ingredient: Ingredient
     @State var isSearching: Bool = false
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
     
     private var iPadView: some View {
         HStack {
@@ -32,10 +34,15 @@ struct IngredientView: View {
     private var nameInputView: some View {
         HStack {
             TextField(
-                LocalizedStringKey("ingredient_name"),
+                LocalizedStringKey("create.ingredient.name.placeholder"),
                 text: $ingredient.name
             ).textFieldStyle(.roundedBorder)
-            Image(systemName: "camera")
+            Button {
+                showingImagePicker = true
+            } label: {
+                Image(systemName: "camera")
+            }
+            
         }
     }
     
@@ -62,7 +69,11 @@ struct IngredientView: View {
             } content: {
                 IngredientSearchView(ingredient: $ingredient)
             }
-
+            .sheet(isPresented: $showingImagePicker) {
+                
+            } content: {
+                ImagePicker(imageURL: $ingredient.image)
+            }
     }
 }
 
@@ -71,7 +82,8 @@ struct IngredientView_Previews: PreviewProvider {
         @State var ingredient: Ingredient = Ingredient()
         
         var body: some View {
-            IngredientView(ingredient: $ingredient)        }
+            IngredientView(ingredient: $ingredient)
+        }
     }
     
     static var previews: some View {

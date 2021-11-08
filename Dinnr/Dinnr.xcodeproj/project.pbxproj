@@ -44,6 +44,9 @@
 		9D4EC0C8273776EC00A050A6 /* CGFloat+Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C7273776EC00A050A6 /* CGFloat+Dimensions.swift */; };
 		9D4EC0CA2737871F00A050A6 /* TagCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0C92737871F00A050A6 /* TagCreationView.swift */; };
 		9D4EC0CC27378D1000A050A6 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0CB27378D1000A050A6 /* FlowLayout.swift */; };
+		9D4EC0CE273870D700A050A6 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0CD273870D700A050A6 /* ImagePicker.swift */; };
+		9D4EC0D027387A6500A050A6 /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0CF27387A6500A050A6 /* ImageUploadManager.swift */; };
+		9D4EC0D227388D4B00A050A6 /* FormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4EC0D127388D4B00A050A6 /* FormEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		9D4EC0C7273776EC00A050A6 /* CGFloat+Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Dimensions.swift"; sourceTree = "<group>"; };
 		9D4EC0C92737871F00A050A6 /* TagCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreationView.swift; sourceTree = "<group>"; };
 		9D4EC0CB27378D1000A050A6 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		9D4EC0CD273870D700A050A6 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9D4EC0CF27387A6500A050A6 /* ImageUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
+		9D4EC0D127388D4B00A050A6 /* FormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,8 @@
 				848D95FA2735CE7100126072 /* NetworkRequest.swift */,
 				848D95FC2735D46B00126072 /* HTTPMethod.swift */,
 				848D95FE2735D7E800126072 /* HTTPStatusCode.swift */,
+				9D4EC0CF27387A6500A050A6 /* ImageUploadManager.swift */,
+				9D4EC0D127388D4B00A050A6 /* FormEncoder.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 				9D4EC0C32737592200A050A6 /* TimePickerView.swift */,
 				9D4EC0C92737871F00A050A6 /* TagCreationView.swift */,
 				9D4EC0CB27378D1000A050A6 /* FlowLayout.swift */,
+				9D4EC0CD273870D700A050A6 /* ImagePicker.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -511,10 +520,13 @@
 				84AB2D2E273791A20011473A /* RecipeListCellView.swift in Sources */,
 				84AB2D2B273737B30011473A /* Ingredient.swift in Sources */,
 				84AB2D2C273737B60011473A /* Instruction.swift in Sources */,
+				9D4EC0CE273870D700A050A6 /* ImagePicker.swift in Sources */,
 				84FC726E27363CB500618F1C /* Tab.swift in Sources */,
+				9D4EC0D027387A6500A050A6 /* ImageUploadManager.swift in Sources */,
 				849245BC2737D8C200AE77A7 /* AsyncImagePlaceholderView.swift in Sources */,
 				84FC72762736588900618F1C /* Sidebar.swift in Sources */,
 				84AB2D27273734D40011473A /* ExplorePage.swift in Sources */,
+				9D4EC0D227388D4B00A050A6 /* FormEncoder.swift in Sources */,
 				848D95C92735C5D000126072 /* DinnrApp.swift in Sources */,
 				84FC7269273619CC00618F1C /* RootPage.swift in Sources */,
 				848D95FB2735CE7100126072 /* NetworkRequest.swift in Sources */,

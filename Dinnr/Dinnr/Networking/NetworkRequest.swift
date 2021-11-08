@@ -28,6 +28,42 @@ struct NetworkRequest<Body: Codable> {
     var queryParms: [String: String] = [:]
     var body: Body?
     var httpMethod: HTTPMethod
+    
+    var formUrlRequest: URLRequest {
+        get throws {
+            guard var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false) else {
+                throw RequestError.componentsFailed(baseUrl: baseUrl)
+            }
+
+            components.queryItems = queryParms.reduce(into: [URLQueryItem](), { partialResult, queryItem in
+                let (key, value) = queryItem
+                partialResult.append(URLQueryItem(name: key, value: value))
+            })
+
+            if !pathItems.isEmpty {
+                components.path = pathItems.joined(separator: "/")
+            }
+
+            guard let url = components.url else {
+                throw RequestError.urlFailed(components: components)
+            }
+
+            var urlRequest = URLRequest(url: url)
+
+            urlRequest.setHttpMethod(httpMethod)
+
+            for (key, value) in headers {
+                urlRequest.addValue(value, forHTTPHeaderField: key)
+            }
+
+            if let body = body {
+                let httpBody: Data = try URLEncodedFormEncoder().encode(body)
+                urlRequest.httpBody = httpBody
+            }
+
+            return urlRequest
+        }
+    }
 
     var urlRequest: URLRequest {
         get throws {
