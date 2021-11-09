@@ -35,9 +35,6 @@ struct Sidebar: View {
         case .some(let section) where section == .recipeSearch:
             #warning("TODO - Add search page")
             Text(section.localizationKey)
-        case .some(let section) where section == .settings:
-            #warning("TODO - Add Settings page")
-            Text(section.localizationKey)
         case .none, .some:
             EmptyView()
         }
