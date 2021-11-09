@@ -15,10 +15,15 @@ struct ExplorePage: View {
             ZStack {
                 List {
                     ForEach(viewModel.recipes) { recipe in
-                        NavigationLink {
-                            RecipeDetailView(recipe: recipe)
-                        } label: {
+                        Section {
                             RecipeListCellView(recipe: recipe)
+                                .background(
+                                    NavigationLink {
+                                        RecipeDetailView(recipe: recipe)
+                                    } label: {
+                                        EmptyView()
+                                    }.opacity(0)
+                                )
                         }
                     }
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))

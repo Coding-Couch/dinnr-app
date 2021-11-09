@@ -24,13 +24,6 @@ struct TabBar: View {
                     Label(Tab.recipeSearch.localizationKey, systemImage: Tab.recipeSearch.icon)
                 }
                 .tag(Tab.recipeSearch)
-
-            #warning("TODO - Add Settings page")
-            Text(selectedSection.localizationKey)
-                .tabItem {
-                    Label(Tab.settings.localizationKey, systemImage: Tab.settings.icon)
-                }
-                .tag(Tab.settings)
         }
     }
 }

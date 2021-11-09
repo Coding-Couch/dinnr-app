@@ -87,7 +87,7 @@ private struct BannerView: View {
     }
 }
 
-struct DragIndicator: View {
+private struct DragIndicator: View {
     var body: some View {
         Color.clear
             .frame(maxWidth: .infinity)
@@ -101,7 +101,7 @@ struct DragIndicator: View {
     }
 }
 
-struct IngredientsSection: View {
+private struct IngredientsSection: View {
     var ingredients: [Ingredient]
 
     var body: some View {
@@ -130,7 +130,7 @@ struct IngredientsSection: View {
     }
 }
 
-struct DirectionsSection: View {
+private struct DirectionsSection: View {
     var instructions: [Instruction]
 
     var body: some View {
@@ -155,7 +155,7 @@ struct DirectionsSection: View {
     }
 }
 
-struct TagSection: View {
+private struct TagSection: View {
     var tags: [String]
 
     var body: some View {

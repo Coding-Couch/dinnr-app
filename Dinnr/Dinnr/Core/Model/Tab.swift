@@ -12,7 +12,6 @@ import SwiftUI
 enum Tab: Int, Identifiable, Hashable, CaseIterable {
     case recipeCreation
     case recipeSearch
-    case settings
 
     var id: Int {
         self.rawValue
@@ -24,8 +23,6 @@ enum Tab: Int, Identifiable, Hashable, CaseIterable {
             return .init(stringLiteral: "Tab.Title.Create")
         case .recipeSearch:
             return .init(stringLiteral: "Tab.Title.Explore")
-        case .settings:
-            return .init(stringLiteral: "Tab.Title.Settings")
         }
     }
 
@@ -35,8 +32,6 @@ enum Tab: Int, Identifiable, Hashable, CaseIterable {
             return "plus"
         case .recipeSearch:
             return "magnifyingglass"
-        case .settings:
-            return "gearshape"
         }
     }
 }
