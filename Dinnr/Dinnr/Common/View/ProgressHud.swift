@@ -10,6 +10,7 @@ import SwiftUI
 struct ProgressHud: View {
     var body: some View {
         ProgressView(LocalizedStringKey("Common.ProgressView.Loading"))
+            .foregroundColor(.black)
             .progressViewStyle(.circular)
             .frame(width: 120, height: 120, alignment: .center)
             .background(.ultraThinMaterial)

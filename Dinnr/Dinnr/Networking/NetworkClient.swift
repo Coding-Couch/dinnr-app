@@ -10,19 +10,29 @@ import Combine
 
 protocol NetworkClient {
     var delegate: URLSessionTaskDelegate? { get }
-
-    func request<Request, Response: Codable>(
+    
+    /// Asynchronous network request
+    ///  - Parameters:
+    ///     - request: NetworkRequest struct
+    ///     - type: the expected  type of the response payload
+    /// - Returns: Decodable Response
+    func request<Request: Encodable, Response: Decodable>(
         with request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) async throws -> Response
-
-    func publisher<Request, Response: Codable>(
+    
+    /// Publisher that publishes a response from a network call.
+    /// - Parameters:
+    ///     - request: NetworkRequest struct
+    ///     - type: the expected type of the response payload
+    /// - Returns: AnyPublisher<Response, Error>
+    func publisher<Request: Encodable, Response: Decodable>(
         of request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) -> AnyPublisher<Response, Error>
 }
 
-class MockNetworkClient<T: Codable>: NetworkClient {
+class MockNetworkClient<T: Decodable>: NetworkClient {
     enum MockNetworkError: Error {
         case invalidType
         case noResponse
@@ -33,7 +43,7 @@ class MockNetworkClient<T: Codable>: NetworkClient {
 
     weak var delegate: URLSessionTaskDelegate?
 
-    func request<Request, Response: Codable>(
+    func request<Request: Encodable, Response: Decodable>(
         with request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) async throws -> Response {
@@ -48,7 +58,7 @@ class MockNetworkClient<T: Codable>: NetworkClient {
         return response
     }
 
-    func publisher<Request, Response: Codable>(
+    func publisher<Request: Encodable, Response: Decodable>(
         of request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) -> AnyPublisher<Response, Error> {
@@ -91,7 +101,7 @@ final class DefaultNetworkClient: NetworkClient {
         self.decoder = decoder
     }
 
-    func request<Request, Response: Codable>(
+    func request<Request: Encodable, Response: Decodable>(
         with request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) async throws -> Response {
@@ -112,7 +122,7 @@ final class DefaultNetworkClient: NetworkClient {
         return response
     }
 
-    func publisher<Request, Response: Codable>(
+    func publisher<Request: Encodable, Response: Decodable>(
         of request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) -> AnyPublisher<Response, Error> {

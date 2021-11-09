@@ -22,7 +22,7 @@ struct NetworkRequest<Body: Codable> {
         }
     }
 
-    var baseUrl: URL
+    var baseUrl: URL = Endpoint.baseUrl
     var pathItems: [String] = []
     var headers: [String: String] = [:]
     var queryParms: [String: String] = [:]
@@ -31,7 +31,13 @@ struct NetworkRequest<Body: Codable> {
 
     var urlRequest: URLRequest {
         get throws {
-            guard var components = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false) else {
+            var url = baseUrl
+
+            for pathItem in pathItems {
+                url.appendPathComponent(pathItem)
+            }
+
+            guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
                 throw RequestError.componentsFailed(baseUrl: baseUrl)
             }
 
@@ -39,10 +45,6 @@ struct NetworkRequest<Body: Codable> {
                 let (key, value) = queryItem
                 partialResult.append(URLQueryItem(name: key, value: value))
             })
-
-            if !pathItems.isEmpty {
-                components.path = pathItems.joined(separator: "/")
-            }
 
             guard let url = components.url else {
                 throw RequestError.urlFailed(components: components)

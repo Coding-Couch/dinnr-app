@@ -17,13 +17,6 @@ struct ExplorePage: View {
                     ForEach(viewModel.recipes) { recipe in
                         Section {
                             RecipeListCellView(recipe: recipe)
-                                .background(
-                                    NavigationLink {
-                                        RecipeDetailView(recipe: recipe)
-                                    } label: {
-                                        EmptyView()
-                                    }.opacity(0)
-                                )
                         }
                     }
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -32,10 +25,21 @@ struct ExplorePage: View {
                 .searchable(
                     text: $viewModel.query,
                     placement: .navigationBarDrawer(displayMode: .automatic),
-                    prompt: LocalizedStringKey("Explore.SearchBar.Prompt")
+                    prompt: LocalizedStringKey("Explore.SearchBar.Prompt"),
+                    suggestions: {
+                        ForEach(viewModel.suggestions) { autocompleteItem in
+                            Text(autocompleteItem.name)
+                                .searchCompletion(autocompleteItem.name)
+                        }
+                    }
                 )
                 .onSubmit(of: .search, {
-                    viewModel.submitQuery()
+                    #warning("TODO - Submit Search")
+                })
+                .onReceive(viewModel.$query.debounce(for: 0.8, scheduler: RunLoop.main), perform: { query in
+                    Task {
+                        await viewModel.submitAutocompleteQuery(query: query)
+                    }
                 })
                 .navigationTitle(LocalizedStringKey("Explore.NavigationBar.Title"))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -49,11 +53,6 @@ struct ExplorePage: View {
             }
         }
         .isLoading(viewModel.isLoading)
-        .onAppear {
-            #if DEBUG
-            viewModel.setupMockClient()
-            #endif
-        }
     }
 }
 

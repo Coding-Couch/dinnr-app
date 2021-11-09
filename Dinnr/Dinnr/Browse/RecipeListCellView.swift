@@ -42,6 +42,13 @@ struct RecipeListCellView: View {
             .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
+        .background(
+            NavigationLink {
+                RecipeDetailView(recipe: recipe)
+            } label: {
+                EmptyView()
+            }.opacity(0)
+        )
     }
 }
 

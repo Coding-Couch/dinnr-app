@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootPage: View {
     @Environment(\.horizontalSizeClass) var sizeClass
-    @StateObject var exploreViewModel = ExplorePage.ViewModel(client: MockNetworkClient<[Recipe]>())
+    @StateObject var exploreViewModel = ExplorePage.ViewModel(client: DefaultNetworkClient())
     @State var selectedSection: Tab = .recipeSearch
 
     var body: some View {
