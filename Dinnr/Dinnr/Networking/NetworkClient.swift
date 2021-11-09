@@ -10,7 +10,7 @@ import Combine
 
 protocol NetworkClient {
     var delegate: URLSessionTaskDelegate? { get }
-    
+
     /// Asynchronous network request
     ///  - Parameters:
     ///     - request: NetworkRequest struct
@@ -20,7 +20,7 @@ protocol NetworkClient {
         with request: NetworkRequest<Request>,
         decodingInto type: Response.Type
     ) async throws -> Response
-    
+
     /// Publisher that publishes a response from a network call.
     /// - Parameters:
     ///     - request: NetworkRequest struct

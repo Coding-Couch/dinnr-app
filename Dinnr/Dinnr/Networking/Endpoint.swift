@@ -33,7 +33,7 @@ enum Endpoint {
     static func ingredientLookup(uuid: UUID) -> [String] {
         return ["ingredients", "\(uuid.uuidString)"]
     }
-    
+
     /// Endpoint path for Ingredient Lookup by uuid
     /// - Parameter uuid: The Ingredient UUID
     /// - Returns: Array of path values

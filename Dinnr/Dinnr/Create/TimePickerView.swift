@@ -35,7 +35,11 @@ struct TimePickerView: View {
         return Int(seconds)
     }
 
-    @ViewBuilder func timePicker(_ stringKey: LocalizedStringKey, selection: Binding<Int>, range: ClosedRange<Int>) -> some View {
+    @ViewBuilder func timePicker(
+        _ stringKey: LocalizedStringKey,
+        selection: Binding<Int>,
+        range: ClosedRange<Int>
+    ) -> some View {
         HStack {
             Picker(stringKey, selection: selection) {
                 ForEach(range, id: \.self) { number in
